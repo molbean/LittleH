@@ -164,6 +164,7 @@ final class StaticWordLibrary extends WordLibrary {
     
   //出題単語をシャッフルするメソッド
     public String getScrambledWord(int idx) {
+    	//int c = (Integer)combo.getSelectedIndex();
     	String question = WORD_LIST[idx];
     	String s="";
     	ArrayList<String> q = new ArrayList<String>();

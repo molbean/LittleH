@@ -212,7 +212,8 @@ public class Anagrams extends JFrame {
         gridBagConstraints.gridy = 2;
         mainPanel.add(levelLabel, gridBagConstraints);
 
-        selectLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Level 1", "Level 2", "Level 3" }));
+        String[] combo = new String[] { "Level 1", "Level 2", "Level 3" };
+        selectLevel.setModel(new javax.swing.DefaultComboBoxModel(combo));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -254,8 +255,25 @@ public class Anagrams extends JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void nextTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTrialActionPerformed
-        wordIdx = (wordIdx + 1) % wordLibrary.getSize();
+    	
+    	
+    	wordIdx = (wordIdx + 1) % wordLibrary.getSize();
 
+    	String selectbox = (String)selectLevel.getSelectedItem();
+    	if (selectbox.equals("Level 1")) {
+    		//System.out.println("1");
+    		wordLibrary.getScrambledWord(wordIdx);
+    	} else if (selectbox.equals("Level 2")) {
+    		//System.out.println("2");
+    		wordLibrary.getScrambledWord(wordIdx);
+    		wordLibrary.getScrambledWord(wordIdx);
+    	} else {
+    		//System.out.println("3");
+    		wordLibrary.getScrambledWord(wordIdx);
+    		wordLibrary.getScrambledWord(wordIdx);
+    		wordLibrary.getScrambledWord(wordIdx);
+    	}
+    	
         feedbackLabel.setText(" ");
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         guessedWord.setText("");
@@ -283,6 +301,10 @@ public class Anagrams extends JFrame {
     private void exitForm(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_exitForm
         System.exit(0);
     }//GEN-LAST:event_exitForm
+    
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
