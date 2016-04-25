@@ -32,6 +32,8 @@
 package com.toy.anagrams.ui;
 
 import com.toy.anagrams.lib.WordLibrary;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -129,6 +131,7 @@ public class Anagrams extends JFrame {
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 12, 12, 12));
         mainPanel.setMinimumSize(new java.awt.Dimension(297, 200));
         mainPanel.setLayout(new java.awt.GridBagLayout());
+        mainPanel.setBackground(new Color(213,234,216));
 
         scrambledLabel.setText("問題:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -187,6 +190,7 @@ public class Anagrams extends JFrame {
             }
         });
         buttonsPanel.add(guessButton, new java.awt.GridBagConstraints());
+        buttonsPanel.setBackground(new Color(228,0,127));
 
         nextTrial.setMnemonic('N');
         nextTrial.setText("次の問題");
