@@ -42,7 +42,7 @@ import javax.swing.SwingUtilities;
  * Main window of the Anagram Game application.
  */
 public class Anagrams extends JFrame {
-
+	int count = 0;
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -255,8 +255,7 @@ public class Anagrams extends JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void nextTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTrialActionPerformed
-    	
-    	
+    		
     	wordIdx = (wordIdx + 1) % wordLibrary.getSize();
 
     	String selectbox = (String)selectLevel.getSelectedItem();
@@ -288,10 +287,11 @@ public class Anagrams extends JFrame {
 
     private void guessedWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessedWordActionPerformed
         if (wordLibrary.isCorrect(wordIdx, guessedWord.getText())){
-            feedbackLabel.setText("Correct! Try a new word!");
+        	count++;
+            feedbackLabel.setText("Correct! Try a new word! "+count+"回正解!!");
             getRootPane().setDefaultButton(nextTrial);
         } else {
-            feedbackLabel.setText("Incorrect! Try again!");
+            feedbackLabel.setText("Incorrect! Try again! "+count+"回正解!!");
             guessedWord.setText("");
         }
 
