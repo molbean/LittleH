@@ -94,6 +94,7 @@ public class Anagrams extends JFrame {
         Dimension frameSize = getSize();
         setLocation(new Point((screenSize.width - frameSize.width) / 2,
                               (screenSize.height - frameSize.width) / 2));
+        guessedWord.setForeground(Color.RED);
     }
     
     /** This method is called from within the constructor to
@@ -168,7 +169,7 @@ public class Anagrams extends JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         mainPanel.add(guessedWord, gridBagConstraints);
 
-        feedbackLabel.setText("aaaaaaaaaaaaaa");
+        feedbackLabel.setText("問題を始めよう!!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -280,6 +281,7 @@ public class Anagrams extends JFrame {
         feedbackLabel.setText(" ");
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         guessedWord.setText("");
+        guessedWord.setForeground(Color.RED);
         getRootPane().setDefaultButton(guessButton);
 
         guessedWord.requestFocusInWindow();
